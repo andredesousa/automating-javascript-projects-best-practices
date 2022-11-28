@@ -8,10 +8,10 @@ These tips are based on books, articles and professional experience.
 
 1. [Choose the right dev dependencies](#choose-the-right-dev-dependencies)
 2. [No dev dependencies in production](#nodev-dependenciesin-production)
-3. [Lock down your dependencies versions](#lock-down-your-dependencies-versions)
+3. [Lock down dependencies versions](#lock-down-dependencies-versions)
 4. [Check for outdated dependencies](#check-for-outdated-dependencies)
-5. [Secure your projects and tokens](#secure-your-projects-and-tokens)
-6. [Use NVM when you work on multiple projects](#use-nvm-when-you-work-on-multiple-projects)
+5. [Secure projects and tokens](#secure-projects-and-tokens)
+6. [Use NVM when working on multiple projects](#use-nvm-when-working-on-multiple-projects)
 7. [Use .env file for environment configurations](#use-env-file-for-environment-configurations)
 8. [Use pre-commit hooks](#use-pre-commit-hooks)
 9. [Define your own npm scripts](#define-your-own-npm-scripts)
@@ -45,7 +45,7 @@ It makes your deployment artifacts smaller and more secure, as you will have les
 To install production dependencies only, we can use `npm ci --production` command.
 Alternatively, you can set the `NODE_ENV=production` environment variable.
 
-## Lock down your dependencies versions
+## Lock down dependencies versions
 
 Even if you save modules with exact version numbers as shown in the previous section, you should be aware that most npm module authors don't.
 It's totally fine, they do it to get patches and features automatically.
@@ -64,7 +64,7 @@ Use `--all` to find all outdated meta-dependencies as well.
 If you are looking for an easy way to update outdated packages, you can use `npm update`.
 However, be aware that `npm update` doesn't update to MAJOR versions.
 
-## Secure your projects and tokens
+## Secure projects and tokens
 
 In case of using npm with a logged in user, your npm token will be placed in the `.npmrc` file.
 As a lot of developers store dotfiles, sometimes these tokens get published by accident.
@@ -75,7 +75,7 @@ However, if you add an `.npmignore` file, it will override the content of `.g
 In CI/CD environments, you can protect your tokens with environment variables.
 `NPM_CONFIG__AUTH` and `NPM_CONFIG_REGISTRY` environment variables can help you with this task.
 
-## Use NVM when you work on multiple projects
+## Use NVM when working on multiple projects
 
 Different projects may require different Node runtimes/versions to be built, and developers are probably working on several different projects on their local machines at a time that may require incompatible Node versions.
 [NVM](https://github.com/nvm-sh/nvm) allows you to have different versions of Node on your machine, and to easily switch between versions as necessary.
