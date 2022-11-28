@@ -6,10 +6,10 @@ These tips are based on books, articles and professional experience.
 
 ## Table of Contents
 
-1. [Choose the right dependencies](#choose-the-right-dependencies)
-2. [Lock down your dependencies versions](#lock-down-your-dependencies-versions)
-3. [Check for outdated dependencies](#check-for-outdated-dependencies)
-4. [No dev dependencies in production](#no-dev-dependencies-in-production)
+1. [Choose the right dev dependencies](#choose-the-right-dev-dependencies)
+2. [No dev dependencies in production](#nodev-dependenciesin-production)
+3. [Lock down your dependencies versions](#lock-down-your-dependencies-versions)
+4. [Check for outdated dependencies](#check-for-outdated-dependencies)
 5. [Secure your projects and tokens](#secure-your-projects-and-tokens)
 6. [Use NVM when you work on multiple projects](#use-nvm-when-you-work-on-multiple-projects)
 7. [Use .env file for environment configurations](#use-env-file-for-environment-configurations)
@@ -32,12 +32,18 @@ These tips are based on books, articles and professional experience.
 24. [Review metrics on a regular basis](#review-metrics-on-a-regular-basis)
 25. [Have an alert system](#have-an-alert-system)
 
-## Choose the right dependencies
+## Choose the right dev dependencies
 
-Using a JavaScript library can help to avoid unnecessary code repetition.
-Libraries can abstract away complex logic, such as date manipulation or financial calculations.
+Using a JavaScript library can help us automate many tasks in our project.
 When we choose a library, we need to consider several aspects such as performance, security, accessibility, conventions, maintenance, community, documentation, and licensing.
 Understanding which pros and which cons apply in different situations is key to vetting the large number of JavaScript library choices that are available
+
+## No dev dependencies in production
+
+Development dependencies are called development dependencies because we don't have to install them in production.
+It makes your deployment artifacts smaller and more secure, as you will have less modules in production which can have security problems.
+To install production dependencies only, we can use `npm ci --production` command.
+Alternatively, you can set the `NODE_ENV=production` environment variable.
 
 ## Lock down your dependencies versions
 
@@ -57,13 +63,6 @@ By default, only the direct dependencies of the root project and direct dependen
 Use `--all` to find all outdated meta-dependencies as well.
 If you are looking for an easy way to update outdated packages, you can use `npm update`.
 However, be aware that `npm update` doesn't update to MAJOR versions.
-
-## No dev dependencies in production
-
-Development dependencies are called development dependencies because we don't have to install them in production.
-It makes your deployment artifacts smaller and more secure, as you will have less modules in production which can have security problems.
-To install production dependencies only, we can use `npm ci --production` command.
-Alternatively, you can set the `NODE_ENV=production` environment variable.
 
 ## Secure your projects and tokens
 
@@ -241,3 +240,4 @@ This is tied in with prioritization and should consider escalation.
 - [CI/CD concepts](https://docs.gitlab.com/ee/ci/introduction/)
 - [npm Best Practices](https://blog.risingstack.com/nodejs-at-scale-npm-best-practices/)
 - [Some Node/JS package best practices](https://www.useanvil.com/blog/engineering/node-package-best-practices/)
+- [Understanding Continuous Automation](https://www.chef.io/blog/understanding-continuous-automation)
